@@ -1,0 +1,48 @@
+{
+  "name": "drum-beat-desktop",
+  "version": "1.0.0",
+  "description": "Desktop App for playing drums for different platforms",
+  "main": "index.js",
+  "author": "Subham Shaw",
+  "license": "ISC",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder -m"
+  },
+  "build": {
+    "appId": "com.example.drum-kit-desktop",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "build/icon.ico"
+    }
+  },
+  "dependencies": {
+    "dmg-license": "latest"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "latest"
+  }
+}
